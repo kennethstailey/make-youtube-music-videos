@@ -1,0 +1,39 @@
+#! /bin/bash
+
+check_mp3_or_flac_extension() {
+    if [[ $1 != *.mp3 ]] && [[ $1 != *.flac ]];
+    then
+	echo Sorry, you must use a mp3 or flac file
+	echo as the second command line option.
+	echo Press the interrupt key to get back to the command line.
+	sleep 9999
+    fi
+}
+
+check_mp4_extension() {
+    if [[ $1 != *.mp4 ]];
+    then
+	echo It might be better to output an mp4 file, my friend.
+	sleep 5
+    fi
+}
+
+# $1 is the JPEG
+# $2 is the audio, mp3 or flac
+# $3 is the generated video, mp4 is the best one to use
+
+if [ $# != 3 ];
+then
+    echo Please use three values, a JPEG, an audio in mp3 or flac
+    echo and the name of the output file, mp4 is best.
+    exit 1
+fi
+
+check_mp3_or_flac_extension "$2"
+check_mp4_extension "$3"
+
+# Working example:
+#
+# ffmpeg -loop 1 -r 1 -i No_Wave.jpg -i "I'm Alive - The Secret.flac" -c:a aac -shortest -c:v libx264 output.mp4
+
+ffmpeg -loop 1 -r 1 -i "$1" -i "$2" -c:a aac -shortest -c:v libx264 "$3"
