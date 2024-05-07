@@ -69,6 +69,7 @@ frame=  298 fps= 44 q=-1.0 Lsize=    5208kB time=00:04:58.30 bitrate= 143.0kbits
 [libx264 @ 0x64f136c7eb80] Weighted P-Frames: Y:0.0% UV:0.0%
 [libx264 @ 0x64f136c7eb80] ref P L0: 98.0%  0.0%  1.5%  0.4%
 [libx264 @ 0x64f136c7eb80] ref B L0: 53.8% 46.2%
+The file output.mp4 has been generated.
 [libx264 @ 0x64f136c7eb80] kb/s:12.40
 [aac @ 0x64f136ca6ec0] Qavg: 1208.003
 $ 
